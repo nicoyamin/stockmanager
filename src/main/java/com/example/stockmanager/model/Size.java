@@ -1,5 +1,6 @@
 package com.example.stockmanager.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,8 +22,8 @@ public class Size {
     @Column(name = "id")
     private int id;
 
-    @JsonIgnoreProperties("sizes")
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
 
@@ -32,7 +33,6 @@ public class Size {
     @Column(name = "special")
     private boolean special;
 
-    @JsonIgnoreProperties("stock")
-    @OneToOne(mappedBy = "size")
+    @OneToOne(mappedBy = "size",cascade = CascadeType.ALL, orphanRemoval = true)
     private Stock stock;
 }

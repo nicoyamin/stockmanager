@@ -1,6 +1,5 @@
 package com.example.stockmanager.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder
@@ -25,8 +23,7 @@ public class Product {
     @Column(name = "sequence")
     private int sequence;
 
-    @JsonIgnoreProperties("product")
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Size> sizes;
 
 }

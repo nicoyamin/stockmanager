@@ -18,14 +18,12 @@ import javax.persistence.*;
 @Table(name = "stock")
 public class Stock {
     @Id
-    @JsonIgnore
-    private Integer sizeId;
+    private int size_id;
 
-    @OneToOne
+    private int quantity;
+
+    @OneToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     @JoinColumn(name = "size_id")
     private Size size;
-
-    private Integer quantity;
-
 }
