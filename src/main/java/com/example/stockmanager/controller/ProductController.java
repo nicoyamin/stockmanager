@@ -19,15 +19,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<ProductDTO> getAllProducts() {
 
         return productService.getAllProductsDTO();
     }
 
-    @GetMapping()
-    public List<Product> getProducts() {
-
-        return productService.getAllProducts();
+    @GetMapping("/inStock")
+    public Long[] identifyProductsInStock() {
+        return productService.identifyProductsInStock();
     }
 }

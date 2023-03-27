@@ -11,7 +11,7 @@ public interface StockMapper {
 
     StockMapper INSTANCE = Mappers.getMapper( StockMapper.class );
 
-    @Mapping(source = "size_id", target = "sizeId")
+    @Mapping(source = "size_id", target = "size_id")
     StockDTO toStockDTO(Stock stock);
 
 }
