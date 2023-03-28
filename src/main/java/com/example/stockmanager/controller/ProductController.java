@@ -3,6 +3,8 @@ package com.example.stockmanager.controller;
 import com.example.stockmanager.model.Product;
 import com.example.stockmanager.model.dto.ProductDTO;
 import com.example.stockmanager.service.ProductServiceImpl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,13 +22,14 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<ProductDTO> getAllProducts() {
+    public ResponseEntity<List<ProductDTO>> getAllProducts() {
 
-        return productService.getAllProductsDTO();
+        return new ResponseEntity<>(productService.getAllProductsDTO(), HttpStatus.OK);
     }
 
     @GetMapping("/inStock")
-    public Long[] identifyProductsInStock() {
-        return productService.identifyProductsInStock();
+    public ResponseEntity<Long[]> getProductsInStock() {
+
+        return new ResponseEntity<>(productService.getProductsInStock(), HttpStatus.OK);
     }
 }
