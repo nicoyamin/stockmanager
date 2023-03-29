@@ -1,6 +1,5 @@
 package com.example.stockmanager.controller;
 
-import com.example.stockmanager.model.Product;
 import com.example.stockmanager.model.dto.ProductDTO;
 import com.example.stockmanager.service.ProductServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -27,6 +26,7 @@ public class ProductController {
         return new ResponseEntity<>(productService.getAllProductsDTO(), HttpStatus.OK);
     }
 
+    //This is the call to trigger the algorithm
     @GetMapping("/inStock")
     public ResponseEntity<Long[]> getProductsInStock() {
 

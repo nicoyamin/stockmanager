@@ -3,17 +3,12 @@ package com.example.stockmanager.service;
 import com.example.stockmanager.TestUtils;
 import com.example.stockmanager.model.Product;
 import com.example.stockmanager.model.dto.ProductDTO;
-import com.example.stockmanager.model.dto.SizeDTO;
-import com.example.stockmanager.model.dto.StockDTO;
 import com.example.stockmanager.model.mapper.ProductMapper;
 import com.example.stockmanager.repository.ProductRepository;
 import com.example.stockmanager.utils.StockUtils;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.Arrays;

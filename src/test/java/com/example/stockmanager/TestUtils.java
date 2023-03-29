@@ -1,10 +1,8 @@
 package com.example.stockmanager;
 
-import com.example.stockmanager.model.Product;
 import com.example.stockmanager.model.dto.ProductDTO;
 import com.example.stockmanager.model.dto.SizeDTO;
 import com.example.stockmanager.model.dto.StockDTO;
-import lombok.Builder;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,4 +49,5 @@ public class TestUtils {
     public static StockDTO getStockDTO() {
         return StockDTO.builder().size_id(1L).quantity(3).build();
     }
+
 }

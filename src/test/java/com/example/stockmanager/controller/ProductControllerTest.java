@@ -17,7 +17,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 class ProductControllerTest {
@@ -62,4 +63,19 @@ class ProductControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(productIds, response.getBody());
     }
+
+
+    @Test
+    void testIdentifyProductsInStock_HandleNullPointer() {
+        Long[] productIds = {1L, 2L, 3L};
+
+        when(productService.getProductsInStock()).thenThrow(NullPointerException.class);
+
+        assertThrows(NullPointerException.class, () -> {
+            ResponseEntity<Long[]> response = productController.getProductsInStock();
+            //System.out.println(response);
+        });
+
+    }
+
 }
