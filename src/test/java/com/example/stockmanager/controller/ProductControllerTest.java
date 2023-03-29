@@ -73,7 +73,7 @@ class ProductControllerTest {
 
         assertThrows(NullPointerException.class, () -> {
             ResponseEntity<Long[]> response = productController.getProductsInStock();
-            //System.out.println(response);
+            System.out.println(response);
         });
 
     }
