@@ -131,23 +131,27 @@ Project can be improved in many aspects, which I'd be more than happy to discuss
 - Increasing Unit test coverage and test cases.
 - Improving the global exception handler. Right now, it's pretty generic.
 - Documenting the API with something like Swagger, and methods and classes should be documented as well with JavaDocs.
-
-When it comes to NEW features that can be added to improve and polish the application, the below considerations can be made:
-
 - Add the option to read CSV files directly and apply the algorithm over that data.
+- API performance: Load tests using JMeter or simillar remain pending. It is possible to integrate performance metrics in a Grafana panel so they can be watched from there.
+- Using API first approach, with OpenApi plugin to autogenerate models and controllers.
+- Adding a proper SQL Database, such as PostgreSQL or MySQL
+
+
+When it comes to architectural design, some considerations would be:
+
 - CI/CD pipeline: A CI/CD pipeling implementation such as Git Actions or Jenkins is pending. 
 - Containerization and Cloud deployment: This application could be easily containerized with Docker or Kubernetes and then deployed to a cloud provider such as AWS. This will allow for easy scalability and redundancy, plus the container tech is a perfect match for the monitoring bundle described above.
 - Monitoring: To add CM (continuos monitoring) to our CI/CD, we need a tool such as [Prometheus](https://prometheus.io/), which is an open source tool that acts as a scrapper for any metric that needs to be exposed from the application and also offers libraries to implement custom metrics in our code while allowing aggregation and querying of this information.
 - Graphic Monitoring: We can use something like [Grafana](https://grafana.com/) to set the Prometheus service as Datasource to compile exposed metrics and present them graphically on a dashboard.
 - Logging: There is no logging system set up, but it could be easily added using Log4j and later integrated with an elastic search tool such as [Loki](https://grafana.com/oss/loki/), which is compatible with Grafana.
 - Containerization and Cloud deployment: This application could be easily containerized with Docker or Kubernetes and then deployed to a cloud provider such as AWS. This will allow for easy scalability and redundancy, plus the container tech is a perfect match for the monitoring bundle described above.
-- API performance: Load tests using JMeter or simillar remain pending. It is possible to integrate performance metrics in a Grafana panel so they can be watched from there,
-- Using API first approach, with OpenApi plugin to autogenerate models and controllers.
+
 
  **GENERAL SOFTWARE PRACTICES**
  
- - This being prototype, I decided to take some "shortcuts" in order to speed up development time.
- - I went for only DTOs for requests and responses and entities(as DAOs), since the amount of information was manageable that
+ This being a prototype, I decided to take some "shortcuts" in order to speed up development time: 
+ 
+ - I went only for DTOs for requests and responses and entities(as DAOs), since the amount of information was manageable that
  way. Under normal circumstances, a response model needs to be added in order to fully isolate the entity from the request/response involved in a REST call.
  - I used Lombok to create necessary getters, setters, hashcodes, etc.
  - I did not create any branches on my repo, and worked directly on master.
