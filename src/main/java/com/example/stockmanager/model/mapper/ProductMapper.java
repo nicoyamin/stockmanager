@@ -20,6 +20,7 @@ public interface ProductMapper {
 
     List<ProductDTO> toProductDTOList(List<Product> products);
 
+    //Default method to map all Size to SizeDTO
     default List<SizeDTO> toSizeDTOList(List<Size> sizes) {
         return sizes.stream()
                 .map(SizeMapper.INSTANCE::toSizeDTO)

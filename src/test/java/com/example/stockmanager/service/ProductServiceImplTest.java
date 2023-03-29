@@ -43,7 +43,7 @@ class ProductServiceImplTest {
         when(productRepository.findAll()).thenReturn(productList);
         when(productMapper.toProductDTOList(productList)).thenReturn(expectedProductDtoList);
 
-        List<ProductDTO> actualProductDtoList = productService.getAllProductsDTO();
+        List<ProductDTO> actualProductDtoList = productService.getAllProducts();
 
         assertEquals(expectedProductDtoList, actualProductDtoList);
     }

@@ -23,7 +23,7 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<List<ProductDTO>> getAllProducts() {
 
-        return new ResponseEntity<>(productService.getAllProductsDTO(), HttpStatus.OK);
+        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 
     //This is the call to trigger the algorithm

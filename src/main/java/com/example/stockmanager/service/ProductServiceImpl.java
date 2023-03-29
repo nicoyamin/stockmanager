@@ -16,22 +16,17 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
-
     private final StockUtils stockUtils;
     @Override
-    public List<Product> getAllProducts() {
+    public List<ProductDTO> getAllProducts() {
 
-        return productRepository.findAll();
-    }
-
-    public List<ProductDTO> getAllProductsDTO() {
-
-         return productMapper.toProductDTOList(getAllProducts());
+         return productMapper.toProductDTOList(productRepository.findAll());
 
     }
 
+    @Override
     public Long[] getProductsInStock() {
-        List<ProductDTO> products = productMapper.toProductDTOList(getAllProducts());
+        List<ProductDTO> products = getAllProducts();
         return stockUtils.identifyProductsInStock(products);
     }
 

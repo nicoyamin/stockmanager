@@ -44,7 +44,7 @@ class ProductControllerTest {
         productList.add(new ProductDTO(1L, 1, Arrays.asList(sizeDTO)));
         productList.add(new ProductDTO(2L, 2, Arrays.asList(sizeDTO)));
 
-        when(productService.getAllProductsDTO()).thenReturn(productList);
+        when(productService.getAllProducts()).thenReturn(productList);
 
         ResponseEntity<List<ProductDTO>> response = productController.getAllProducts();
 

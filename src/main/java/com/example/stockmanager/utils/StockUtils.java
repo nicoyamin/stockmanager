@@ -13,6 +13,7 @@ public class StockUtils {
     public Long[] identifyProductsInStock(List<ProductDTO> products) {
         return products.stream()
                 .filter(product -> {
+                    //These are the three conditions that cover all use coses
                     boolean regularInStock = false;
                     boolean containsSpecialSize = false;
                     boolean specialInStock = false;
@@ -25,6 +26,7 @@ public class StockUtils {
                                 regularInStock = checkStock(size) || regularInStock;
                             }
                         } catch (Exception e) {
+                            //In case of a NPE, the size that caused the NPE will be ignored
                             continue;
                         }
 
