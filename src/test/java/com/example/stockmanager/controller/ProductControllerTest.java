@@ -67,8 +67,6 @@ class ProductControllerTest {
 
     @Test
     void testIdentifyProductsInStock_HandleNullPointer() {
-        Long[] productIds = {1L, 2L, 3L};
-
         when(productService.getProductsInStock()).thenThrow(NullPointerException.class);
 
         assertThrows(NullPointerException.class, () -> {
